@@ -21,7 +21,7 @@ stages:
   jobs:
   - job: BuildJob
     pool:
-      vmImage: $(vmImageName)
+      name: 'mylaptop'
     steps:
     - script: |
         sudo update-alternatives --set php /usr/bin/php$(phpVersion)
@@ -70,7 +70,7 @@ stages:
               appName: $(webAppName)
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
 pool:
-  vmImage: 'ubuntu-latest'
+  name: 'mylaptop'
 
 variables:
   phpVersion: 7.2
